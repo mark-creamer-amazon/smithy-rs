@@ -511,8 +511,8 @@ class RustJmespathShapeTraversalGenerator(
                                     // Generate a match that returns the active variant name.
                                     val unionSym = symbolProvider.toSymbol(outputShape)
 
-                                    // Filter out "Unknown" to avoid colliding with the synthetic
-                                    // unit variant added by client codegen (see smithy-rs#4096).
+                                    // Filter out "Unknown" to avoid generating a match arm that
+                                    // collides with the synthetic unit variant added by client codegen.
                                     // The wildcard arm below handles it.
                                     val matchArms =
                                         outputShape.allMembers.keys
